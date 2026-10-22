@@ -238,12 +238,12 @@ export const VaultDashboard: React.FC<VaultDashboardProps> = ({
 
         </div>
 
-        {/* Row 2: Category Filter Bar with BOTH Quick Dropdown & Horizontal Scrollable Pills */}
-        <div className="flex items-center gap-2 p-3 rounded-2xl bg-white dark:bg-[#122422] border border-[#287A74]/20 shadow-xs">
+        {/* Row 2: Category Filter Bar */}
+        <div className="flex items-center gap-2 p-2.5 sm:p-3 rounded-2xl bg-white dark:bg-[#122422] border border-[#287A74]/20 shadow-xs">
           
-          {/* Quick Category Dropdown */}
-          <div className="relative shrink-0 flex items-center gap-1.5 pr-2 border-r border-stone-200 dark:border-[#1E3835]">
-            <Filter className="w-3.5 h-3.5 text-[#287A74] dark:text-[#AEEED3] shrink-0" aria-hidden="true" />
+          {/* Category Dropdown (Clean and full-width on mobile, compact on desktop) */}
+          <div className="relative w-full sm:w-auto shrink-0 flex items-center gap-2 sm:pr-3 sm:border-r border-stone-200 dark:border-[#1E3835]">
+            <Filter className="w-4 h-4 text-[#287A74] dark:text-[#AEEED3] shrink-0" aria-hidden="true" />
             <select
               value={onlyFavorites ? 'favorites' : activeCategory}
               onChange={(e) => {
@@ -255,7 +255,7 @@ export const VaultDashboard: React.FC<VaultDashboardProps> = ({
                   setActiveCategory(e.target.value);
                 }
               }}
-              className="py-1 px-2 text-xs font-bold rounded-lg border border-stone-200 dark:border-[#1E3835] bg-stone-50 dark:bg-[#0B1615] text-[#122422] dark:text-[#E6F4F1] focus:outline-none focus:ring-2 focus:ring-[#287A74] cursor-pointer"
+              className="w-full sm:w-auto py-1.5 px-3 text-xs sm:text-sm font-semibold rounded-xl border border-stone-200 dark:border-[#1E3835] bg-stone-50 dark:bg-[#0B1615] text-[#122422] dark:text-[#E6F4F1] focus:outline-none focus:ring-2 focus:ring-[#287A74] cursor-pointer"
               aria-label="Filter by Category"
             >
               {categories.map((cat) => (
@@ -269,11 +269,11 @@ export const VaultDashboard: React.FC<VaultDashboardProps> = ({
             </select>
           </div>
 
-          {/* Left Scroll Arrow */}
+          {/* Left Scroll Arrow (Desktop only - hidden on mobile) */}
           <button
             type="button"
             onClick={() => handleScroll('left')}
-            className={`p-1.5 rounded-lg border border-stone-200 dark:border-[#1E3835] hover:bg-stone-100 dark:hover:bg-[#1E3835] text-stone-600 dark:text-stone-300 transition-opacity shrink-0 cursor-pointer ${
+            className={`hidden sm:flex items-center justify-center p-1.5 rounded-lg border border-stone-200 dark:border-[#1E3835] hover:bg-stone-100 dark:hover:bg-[#1E3835] text-stone-600 dark:text-stone-300 transition-opacity shrink-0 cursor-pointer ${
               canScrollLeft ? 'opacity-100' : 'opacity-30 cursor-default'
             }`}
             aria-label="Scroll categories left"
@@ -281,11 +281,11 @@ export const VaultDashboard: React.FC<VaultDashboardProps> = ({
             <ChevronLeft className="w-4 h-4" />
           </button>
 
-          {/* Horizontal Scrollable Pills with Visible Scroll Hint */}
+          {/* Horizontal Scrollable Pills (Desktop only - hidden on mobile) */}
           <div
             ref={scrollContainerRef}
             onScroll={checkScroll}
-            className="flex-1 flex items-center gap-1.5 overflow-x-auto py-1 scroll-smooth"
+            className="hidden sm:flex flex-1 items-center gap-1.5 overflow-x-auto py-1 scroll-smooth"
           >
             {categories.map((cat) => {
               const isSelected = !onlyFavorites && activeCategory === cat.key;
@@ -340,11 +340,11 @@ export const VaultDashboard: React.FC<VaultDashboardProps> = ({
             </button>
           </div>
 
-          {/* Right Scroll Arrow */}
+          {/* Right Scroll Arrow (Desktop only - hidden on mobile) */}
           <button
             type="button"
             onClick={() => handleScroll('right')}
-            className={`p-1.5 rounded-lg border border-stone-200 dark:border-[#1E3835] hover:bg-stone-100 dark:hover:bg-[#1E3835] text-stone-600 dark:text-stone-300 transition-opacity shrink-0 cursor-pointer ${
+            className={`hidden sm:flex items-center justify-center p-1.5 rounded-lg border border-stone-200 dark:border-[#1E3835] hover:bg-stone-100 dark:hover:bg-[#1E3835] text-stone-600 dark:text-stone-300 transition-opacity shrink-0 cursor-pointer ${
               canScrollRight ? 'opacity-100' : 'opacity-30 cursor-default'
             }`}
             aria-label="Scroll categories right"
