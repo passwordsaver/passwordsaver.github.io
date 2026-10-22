@@ -1,0 +1,187 @@
+---
+/**
+ * @license
+ * SPDX-License-Identifier: MIT
+ * 
+ * PasswordSaver Production Astro Layout
+ * Production URL: https://passwordsaver.github.io/
+ */
+
+interface Props {
+  title?: string;
+  description?: string;
+  lang?: string;
+}
+
+const {
+  title = "PasswordSaver – Zero-Knowledge Private Vault & Offline Password Manager",
+  description = "100% client-side zero-server password manager with Web Crypto AES-GCM 256-bit encryption. Zero tracking, offline PWA access, local vault backup, and instant password generation.",
+  lang = "en"
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, "https://passwordsaver.github.io/");
+---
+
+<!doctype html>
+<html lang={lang} class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZZ59C62LC"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9ZZ59C62LC');
+    </script>
+
+    <!-- Primary Metadata -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content="password manager, zero-server password vault, client-side encryption, Web Crypto API, AES-GCM, private password keeper, offline PWA password saver" />
+    <meta name="author" content="PasswordSaver Team" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Hreflang Multi-Language Alternates -->
+    <link rel="alternate" hreflang="en" href="https://passwordsaver.github.io/" />
+    <link rel="alternate" hreflang="es" href="https://passwordsaver.github.io/?lang=es" />
+    <link rel="alternate" hreflang="pt" href="https://passwordsaver.github.io/?lang=pt" />
+    <link rel="alternate" hreflang="de" href="https://passwordsaver.github.io/?lang=de" />
+    <link rel="alternate" hreflang="fr" href="https://passwordsaver.github.io/?lang=fr" />
+    <link rel="alternate" hreflang="ja" href="https://passwordsaver.github.io/?lang=ja" />
+    <link rel="alternate" hreflang="zh" href="https://passwordsaver.github.io/?lang=zh" />
+    <link rel="alternate" hreflang="ru" href="https://passwordsaver.github.io/?lang=ru" />
+    <link rel="alternate" hreflang="x-default" href="https://passwordsaver.github.io/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="PasswordSaver" />
+    <meta property="og:image" content="https://passwordsaver.github.io/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://passwordsaver.github.io/og-image.png" />
+
+    <!-- Mobile & PWA Metadata -->
+    <meta name="theme-color" content="#287A74" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0B1615" media="(prefers-color-scheme: dark)" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="PasswordSaver" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- Schema.org JSON-LD: WebApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "PasswordSaver",
+      "url": "https://passwordsaver.github.io/",
+      "applicationCategory": "SecurityApplication",
+      "operatingSystem": "All",
+      "description": "Zero-server, 100% browser-based private password manager with client-side Web Crypto AES-GCM encryption, offline PWA capabilities, and local encrypted vault backup.",
+      "browserRequirements": "Requires JavaScript and modern browser with Web Crypto API support.",
+      "softwareVersion": "1.0.0",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "creator": {
+        "@type": "Organization",
+        "name": "PasswordSaver Open Source",
+        "url": "https://passwordsaver.github.io/"
+      }
+    }
+    </script>
+
+    <!-- Schema.org JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://passwordsaver.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Encrypted Vault",
+          "item": "https://passwordsaver.github.io/#vault"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Security Architecture & FAQ",
+          "item": "https://passwordsaver.github.io/#faq"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Schema.org JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does PasswordSaver store my master password or credentials on any server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. PasswordSaver operates with a strict zero-server architecture. All encryption and decryption occurs locally in your browser using the native Web Crypto API (AES-GCM 256-bit with PBKDF2 key derivation). Raw passwords never touch any server or cloud database."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does client-side Web Crypto AES-GCM encryption protect my vault?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your master key derives a high-entropy 256-bit AES encryption key via PBKDF2 with 100,000 SHA-256 iterations and a unique cryptographic salt. Vault items are encrypted using AES-GCM with a distinct 12-byte initialization vector (IV) per record. Without the master key, ciphertext cannot be decrypted."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use PasswordSaver completely offline?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. PasswordSaver includes a Progressive Web App (PWA) Service Worker that precaches all application assets. You can install it on your Android, iOS, Windows, or Mac device and access, add, generate, or copy passwords with zero internet connection."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens if I clear my browser cookies and cache?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because storage is local to your browser, clearing website storage will wipe the vault. PasswordSaver provides a 1-click Encrypted Vault Backup (JSON) feature so you can keep offline encrypted backup files and restore them anytime."
+          }
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body class="bg-[#FAFCFB] text-[#122422] dark:bg-[#0B1615] dark:text-[#E6F4F1] antialiased selection:bg-[#AEEED3] selection:text-[#0B1615] transition-colors duration-200">
+    <slot />
+  </body>
+</html>

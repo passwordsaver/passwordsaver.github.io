@@ -1,0 +1,5 @@
+# https://passwordsaver.github.io/robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://passwordsaver.github.io/sitemap.xml
